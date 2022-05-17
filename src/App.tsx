@@ -34,6 +34,7 @@ function App() {
                   key={item.index}
                   prompt={item.prompt}
                   response={item.text}
+                  date={item.date}
                 />
               )
             })}

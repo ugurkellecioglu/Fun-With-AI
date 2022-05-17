@@ -84,6 +84,7 @@ export const AppProvider = ({ children }: AppContextProps) => {
                 return {
                   ...choice,
                   prompt: prompt,
+                  date: new Date(),
                 }
               })
               .concat(JSON.parse(localStorage.getItem("data") || "[]"))
