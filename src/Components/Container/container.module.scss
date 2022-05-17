@@ -3,4 +3,7 @@
   width: 60vw;
   height: 100vh;
   background-color: App.$space-cadet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
