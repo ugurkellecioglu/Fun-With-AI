@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 //create appContext
 
@@ -41,6 +41,14 @@ export const AppProvider = ({ children }: AppContextProps) => {
     presence_penalty: number
   }
 
+  interface choiceI {
+    finish_reason: string
+    index: number
+    logprobs?: any
+    text: string
+    prompt: string
+  }
+
   const reqPayload = {
     prompt: "",
     temperature: 0.5,
@@ -71,6 +79,16 @@ export const AppProvider = ({ children }: AppContextProps) => {
             setData(json.choices)
             setLoading(false)
             setError(false)
+            const data = json.choices
+              .map((choice: choiceI) => {
+                return {
+                  ...choice,
+                  prompt: prompt,
+                }
+              })
+              .concat(JSON.parse(localStorage.getItem("data") || "[]"))
+            setData(data)
+            localStorage.setItem("data", JSON.stringify(data))
           })
         } else {
           setError(true)
@@ -81,6 +99,7 @@ export const AppProvider = ({ children }: AppContextProps) => {
         setLoading(false)
       })
   }
+
   return (
     <AppContext.Provider
       value={{

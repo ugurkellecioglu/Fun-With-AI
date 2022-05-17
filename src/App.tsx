@@ -2,10 +2,18 @@ import "./App.scss"
 import { Container, Prompt, Response } from "./Components"
 import { AppContext, AppProvider } from "./context/AppContext"
 import { ClipLoader } from "react-spinners"
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 
 function App() {
-  const { loading } = useContext(AppContext)
+  const { setLoading, loading, setData, data } = useContext(AppContext)
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setData(JSON.parse(localStorage.getItem("data") || "[]"))
+      setLoading(false)
+    }, 1000)
+  }, [])
+
   return (
     <React.Fragment>
       {loading && (
@@ -19,7 +27,16 @@ function App() {
         <Container>
           <h1>Fun with AI</h1>
           <Prompt />
-          <Response />
+          {data &&
+            data.map((item) => {
+              return (
+                <Response
+                  key={item.index}
+                  prompt={item.prompt}
+                  response={item.text}
+                />
+              )
+            })}
         </Container>
       </div>
     </React.Fragment>
