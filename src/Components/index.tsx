@@ -6,6 +6,8 @@ import Prompt from "./Prompt"
 import Footer from "./Footer"
 import Responses from "./Responses"
 import Engines from "./Engines"
+import Presets from "./Presets"
+
 export {
   Container,
   Input,
@@ -15,4 +17,5 @@ export {
   Footer,
   Responses,
   Engines,
+  Presets,
 }

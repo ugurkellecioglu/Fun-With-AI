@@ -1,5 +1,12 @@
 import "./App.scss"
-import { Container, Engines, Footer, Prompt, Responses } from "./Components"
+import {
+  Container,
+  Engines,
+  Footer,
+  Presets,
+  Prompt,
+  Responses,
+} from "./Components"
 import { AppContext } from "./context/AppContext"
 import { ClipLoader } from "react-spinners"
 import React, { useContext, useEffect } from "react"
@@ -29,6 +36,7 @@ function App() {
           <div>
             <Prompt />
             <Engines />
+            <Presets />
           </div>
           <Responses />
           <Footer />

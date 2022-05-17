@@ -18,6 +18,16 @@ interface AppContextI {
   setPrompt: Function
   setEngine: Function
   engine: string
+  setReqPayload: Function
+  reqPayload: reqPayloadInterface
+}
+interface reqPayloadInterface {
+  prompt: string
+  temperature: number
+  max_tokens: number
+  top_p: number
+  frequency_penalty: number
+  presence_penalty: number
 }
 const defaultState: AppContextI = {
   setData: (data: any) => {},
@@ -31,20 +41,20 @@ const defaultState: AppContextI = {
   setPrompt: (prompt: string) => {},
   setEngine: (engine: string) => {},
   engine: "",
+  setReqPayload: (reqPayload: reqPayloadInterface) => {},
+  reqPayload: {
+    prompt: "",
+    temperature: 0,
+    max_tokens: 100,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
 }
 
 export const AppContext = React.createContext<AppContextI>(defaultState)
 
 export const AppProvider = ({ children }: AppContextProps) => {
-  interface reqPayloadInterface {
-    prompt: string
-    temperature: number
-    max_tokens: number
-    top_p: number
-    frequency_penalty: number
-    presence_penalty: number
-  }
-
   interface choiceI {
     finish_reason: string
     index: number
@@ -53,22 +63,20 @@ export const AppProvider = ({ children }: AppContextProps) => {
     prompt: string
   }
 
-  const reqPayload = {
-    prompt: "",
-    temperature: 0.5,
-    max_tokens: 64,
-    top_p: 1.0,
-    frequency_penalty: 0.0,
-    presence_penalty: 0.0,
-  } as reqPayloadInterface
-
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [prompt, setPrompt] = useState("")
 
   const [engine, setEngine] = useState("text-curie-001")
-
+  const [reqPayload, setReqPayload] = useState({
+    prompt: "",
+    temperature: 0.5,
+    max_tokens: 64,
+    top_p: 1.0,
+    frequency_penalty: 0.0,
+    presence_penalty: 0.0,
+  } as reqPayloadInterface)
   const handleSearch = () => {
     setLoading(true)
     fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
@@ -77,7 +85,10 @@ export const AppProvider = ({ children }: AppContextProps) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
       },
-      body: JSON.stringify(reqPayload),
+      body: JSON.stringify({
+        ...reqPayload,
+        prompt: reqPayload.prompt + prompt,
+      }),
     })
       .then((res) => {
         if (res.status === 200) {
@@ -121,6 +132,8 @@ export const AppProvider = ({ children }: AppContextProps) => {
         setPrompt,
         setEngine,
         engine,
+        setReqPayload,
+        reqPayload,
       }}
     >
       {children}

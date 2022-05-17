@@ -21,12 +21,14 @@ const options = [
   },
 ]
 const Engines = () => {
-  const { setEngine } = useContext(AppContext)
+  const { setEngine, engine } = useContext(AppContext)
+  const findEngine = options.find((option: any) => option.value === engine)
   return (
     <>
       <p>Select Engine</p>
       <Select
-        defaultValue={options[1]}
+        defaultValue={findEngine}
+        value={findEngine}
         onChange={(e) => setEngine(e?.value)}
         options={options}
       />
