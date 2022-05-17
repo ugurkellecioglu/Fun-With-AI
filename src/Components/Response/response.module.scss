@@ -1,0 +1,8 @@
+@use "../../App.scss" as App;
+.wrapper {
+  background-color: App.$floral-white;
+  width: 60%;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
