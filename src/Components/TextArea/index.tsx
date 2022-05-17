@@ -1,8 +1,19 @@
 import styles from "./textarea.module.scss"
-const TextArea = () => {
+
+interface TextAreaProps {
+  handleChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  value?: string
+}
+
+const TextArea = ({ handleChange, value }: TextAreaProps) => {
   return (
     <div className={styles.wrapper}>
-      <textarea className={styles.textarea} placeholder="Enter your name" />
+      <textarea
+        value={value}
+        onChange={handleChange}
+        className={styles.textarea}
+        placeholder="Enter your name"
+      />
     </div>
   )
 }
