@@ -6,7 +6,7 @@ interface ButtonProps {
 const Button = ({ handleClick }: ButtonProps) => {
   return (
     <button onClick={handleClick} className={styles.button}>
-      Button
+      Submit
     </button>
   )
 }

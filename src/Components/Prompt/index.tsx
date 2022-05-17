@@ -16,7 +16,6 @@ const Prompt = () => {
 
   return (
     <div>
-      {JSON.stringify(prompt)}
       <TextArea value={prompt} handleChange={handleChange} />
       <Button handleClick={handleSubmit} />
     </div>

@@ -17,7 +17,7 @@ function App() {
       )}
       <div className="App">
         <Container>
-          <h1>Hello World</h1>
+          <h1>Fun with AI</h1>
           <Prompt />
           <Response />
         </Container>
