@@ -3,8 +3,8 @@
   & > .title {
     color: white;
     border: none;
-    letter-spacing: 0.1rem;
     font-size: 1.1rem;
+    font-weight: lighter;
   }
   & > textarea {
     padding: 1rem 3rem;
@@ -14,11 +14,12 @@
     font-size: 1.2rem;
     font-weight: bold;
     background-color: #f5f5f5;
+    transition: all 0.2s ease-in-out;
     &:hover {
       outline: App.$dark-orange solid 0.2rem;
     }
     &:focus {
-      outline: App.$orange-yellow-crayola solid 0.3rem;
+      outline: App.$orange-yellow-crayola solid 0.2rem;
     }
   }
 }

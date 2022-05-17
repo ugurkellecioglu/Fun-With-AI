@@ -9,6 +9,11 @@ $space-cadet: hsla(254, 31%, 27%, 1);
   display: flex;
   justify-content: center;
   background-color: $middle-blue-green;
+  height: 100vh;
+  width: 100vw;
+  h1 {
+    color: white;
+  }
 }
 
 .loadingWrapper {

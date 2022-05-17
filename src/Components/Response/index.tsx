@@ -16,12 +16,17 @@ const Response = ({ prompt, response, date }: ResponseProps) => {
           </small>
         </div>
         <div className={styles.prompt}>
-          <span className={styles.subtitle}>Prompt:</span>
-
-          <span className={styles.text}>{prompt}</span>
+          <div className={styles.wrap}>
+            <span className={styles.subtitle}>Prompt:</span>
+          </div>
+          <div>
+            <span className={styles.text}>{prompt}</span>
+          </div>
         </div>
         <div className={styles.response}>
-          <span className={styles.subtitle}>Response:</span>
+          <div className={styles.wrap}>
+            <span className={styles.subtitle}>Response:</span>
+          </div>
           <span className={styles.text}>{response}</span>
         </div>
       </div>

@@ -23,11 +23,20 @@
       font-size: 1.2rem;
       font-weight: bold;
       margin-bottom: 1rem;
-      margin-right: 2rem;
     }
 
     .text {
       font-size: 1.2rem;
+    }
+    .wrap {
+      min-width: 120px;
+      max-width: fit-content;
+    }
+    .prompt {
+      display: flex;
+    }
+    .response {
+      display: flex;
     }
   }
 }
