@@ -1,9 +1,10 @@
 @use "../../App.scss" as App;
 .wrapper {
   width: 60vw;
-  height: 100vh;
+  height: 100%;
   background-color: App.$space-cadet;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 3rem;
 }
