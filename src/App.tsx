@@ -1,5 +1,5 @@
 import "./App.scss"
-import { Container, Input } from "./Components"
+import { Button, Container, Input } from "./Components"
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Container>
         <h1>Hello World</h1>
         <Input />
+        <Button />
       </Container>
     </div>
   )
