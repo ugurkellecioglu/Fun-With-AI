@@ -1,6 +1,6 @@
 import "./App.scss"
-import { Container, Prompt, Response } from "./Components"
-import { AppContext, AppProvider } from "./context/AppContext"
+import { Container, Footer, Prompt, Response } from "./Components"
+import { AppContext } from "./context/AppContext"
 import { ClipLoader } from "react-spinners"
 import React, { useContext, useEffect } from "react"
 
@@ -38,6 +38,7 @@ function App() {
                 />
               )
             })}
+          <Footer />
         </Container>
       </div>
     </React.Fragment>
