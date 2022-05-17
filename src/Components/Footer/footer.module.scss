@@ -1,6 +1,9 @@
 @use "../../App.scss" as App;
 .content {
   padding: 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   ul {
     list-style: none;
     padding: 0;
