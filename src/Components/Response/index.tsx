@@ -12,7 +12,7 @@ const Response = ({ prompt, response, date }: ResponseProps) => {
       <div className={styles.content}>
         <div className={styles.date}>
           <small>
-            <Moment from={date}>{date}</Moment>
+            <Moment fromNow>{date}</Moment>
           </small>
         </div>
         <div className={styles.prompt}>
