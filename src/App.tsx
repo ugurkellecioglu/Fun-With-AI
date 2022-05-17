@@ -1,13 +1,12 @@
 import "./App.scss"
-import { Button, Container, Input, Response } from "./Components"
+import { Container, Prompt, Response } from "./Components"
 
 function App() {
   return (
     <div className="App">
       <Container>
         <h1>Hello World</h1>
-        <Input />
-        <Button />
+        <Prompt />
         <Response />
       </Container>
     </div>
