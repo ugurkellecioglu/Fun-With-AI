@@ -1,2 +1,3 @@
 import Container from "./Container"
-export { Container }
+import Input from "./Input"
+export { Container, Input }
