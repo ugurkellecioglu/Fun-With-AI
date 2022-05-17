@@ -1,10 +1,20 @@
 import "./App.scss"
 import { Container, Prompt, Response } from "./Components"
-import { AppProvider } from "./context/AppContext"
+import { AppContext, AppProvider } from "./context/AppContext"
+import { ClipLoader } from "react-spinners"
+import React, { useContext } from "react"
 
 function App() {
+  const { loading } = useContext(AppContext)
   return (
-    <AppProvider>
+    <React.Fragment>
+      {loading && (
+        <div className="loadingWrapper">
+          <div className="loading">
+            <ClipLoader loading={loading} />
+          </div>
+        </div>
+      )}
       <div className="App">
         <Container>
           <h1>Hello World</h1>
@@ -12,7 +22,7 @@ function App() {
           <Response />
         </Container>
       </div>
-    </AppProvider>
+    </React.Fragment>
   )
 }
 

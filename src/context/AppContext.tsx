@@ -64,18 +64,22 @@ export const AppProvider = ({ children }: AppContextProps) => {
         Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
       },
       body: JSON.stringify(reqPayload),
-    }).then((res) => {
-      if (res.status === 200) {
-        res.json().then((json) => {
-          setData(json.choices)
-          setLoading(false)
-          setError(false)
-        })
-      } else {
-        setError(true)
-        setLoading(false)
-      }
     })
+      .then((res) => {
+        if (res.status === 200) {
+          res.json().then((json) => {
+            setData(json.choices)
+            setLoading(false)
+            setError(false)
+          })
+        } else {
+          setError(true)
+          setLoading(false)
+        }
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
   return (
     <AppContext.Provider
