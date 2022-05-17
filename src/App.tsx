@@ -1,11 +1,11 @@
 import "./App.scss"
-import { Container, Footer, Prompt, Response } from "./Components"
+import { Container, Footer, Prompt, Responses } from "./Components"
 import { AppContext } from "./context/AppContext"
 import { ClipLoader } from "react-spinners"
 import React, { useContext, useEffect } from "react"
 
 function App() {
-  const { setLoading, loading, setData, data } = useContext(AppContext)
+  const { setLoading, loading, setData } = useContext(AppContext)
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
@@ -27,17 +27,7 @@ function App() {
         <Container>
           <h1>Fun with AI</h1>
           <Prompt />
-          {data &&
-            data.map((item) => {
-              return (
-                <Response
-                  key={item.index}
-                  prompt={item.prompt}
-                  response={item.text}
-                  date={item.date}
-                />
-              )
-            })}
+          <Responses />
           <Footer />
         </Container>
       </div>
