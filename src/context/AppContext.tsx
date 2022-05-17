@@ -16,6 +16,8 @@ interface AppContextI {
   handleSearch: Function
   prompt: string
   setPrompt: Function
+  setEngine: Function
+  engine: string
 }
 const defaultState: AppContextI = {
   setData: (data: any) => {},
@@ -27,6 +29,8 @@ const defaultState: AppContextI = {
   handleSearch: (prompt: string) => {},
   prompt: "",
   setPrompt: (prompt: string) => {},
+  setEngine: (engine: string) => {},
+  engine: "",
 }
 
 export const AppContext = React.createContext<AppContextI>(defaultState)
@@ -63,9 +67,11 @@ export const AppProvider = ({ children }: AppContextProps) => {
   const [error, setError] = useState(false)
   const [prompt, setPrompt] = useState("")
 
+  const [engine, setEngine] = useState("text-curie-001")
+
   const handleSearch = () => {
     setLoading(true)
-    fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+    fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,6 +119,8 @@ export const AppProvider = ({ children }: AppContextProps) => {
         handleSearch,
         prompt,
         setPrompt,
+        setEngine,
+        engine,
       }}
     >
       {children}

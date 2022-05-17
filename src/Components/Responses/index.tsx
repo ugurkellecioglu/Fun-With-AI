@@ -13,7 +13,13 @@ const Responses = () => {
     />
   ))
 
-  if (responses.length > 0) return <>{responses}</>
+  if (responses.length > 0)
+    return (
+      <>
+        <h1 className={styles.title}>Responses</h1>
+        {responses}
+      </>
+    )
   return (
     <div className={styles.noResponses}>
       <h3>There is no data to show yet.</h3>
