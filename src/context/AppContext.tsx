@@ -93,7 +93,6 @@ export const AppProvider = ({ children }: AppContextProps) => {
       .then((res) => {
         if (res.status === 200) {
           res.json().then((json) => {
-            setData(json.choices)
             setLoading(false)
             setError(false)
             const data = json.choices
@@ -102,6 +101,7 @@ export const AppProvider = ({ children }: AppContextProps) => {
                   ...choice,
                   prompt: prompt,
                   date: new Date(),
+                  id: `${json.id}-${json.created}`,
                 }
               })
               .concat(JSON.parse(localStorage.getItem("data") || "[]"))
@@ -115,6 +115,7 @@ export const AppProvider = ({ children }: AppContextProps) => {
       })
       .finally(() => {
         setLoading(false)
+        setPrompt("")
       })
   }
 

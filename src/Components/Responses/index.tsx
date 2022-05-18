@@ -6,7 +6,7 @@ const Responses = () => {
   const { data } = useContext(AppContext)
   const responses = data.map((item) => (
     <Response
-      key={item.index}
+      key={item.id}
       prompt={item.prompt}
       response={item.text}
       date={item.date}

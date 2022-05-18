@@ -9,13 +9,14 @@ const Intro = () => {
     // get firstTime local storage
     const firstTime = localStorage.getItem("firstTime")
     if (firstTime === null) {
-      localStorage.setItem("firstTime", "true")
       setfirstTime(true)
     } else {
       setfirstTime(false)
-      localStorage.setItem("firstTime", "false")
     }
   }, [])
+  useEffect(() => {
+    localStorage.setItem("firstTime", firstTime.toString())
+  }, [firstTime])
 
   const steps = [
     {
@@ -31,11 +32,11 @@ const Intro = () => {
     },
     {
       element: ".submit-btn",
-      intro: "Click to search",
+      intro: "Click to submit",
     },
     {
       element: ".responses-title",
-      intro: "You will see the results here",
+      intro: "You will see the response of the AI here",
     },
     {
       element: ".engines",
@@ -53,7 +54,7 @@ const Intro = () => {
       enabled={firstTime}
       steps={steps}
       initialStep={0}
-      onExit={() => {}}
+      onExit={() => setfirstTime(false)}
     />
   )
 }

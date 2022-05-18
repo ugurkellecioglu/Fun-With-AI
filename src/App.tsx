@@ -1,13 +1,5 @@
 import "./App.scss"
-import {
-  Container,
-  Engines,
-  Footer,
-  Intro,
-  Presets,
-  Prompt,
-  Responses,
-} from "./Components"
+import { Container, Footer, Intro, Prompt, Responses } from "./Components"
 import { AppContext } from "./context/AppContext"
 import { ClipLoader } from "react-spinners"
 import React, { useCallback, useContext, useEffect } from "react"
@@ -49,19 +41,7 @@ function App() {
             }}
           >
             <Prompt />
-            <Container
-              stylesProps={{
-                height: "100%",
-                minHeight: "100%",
-                alignItems: "center",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <Engines />
-              <Presets />
-            </Container>
+
             <Responses />
           </Container>
           <Footer />

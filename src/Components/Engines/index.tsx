@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import Select from "react-select"
+import Select, { StylesConfig } from "react-select"
 import { AppContext } from "../../context/AppContext"
 import styles from "./engines.module.scss"
 const options = [
@@ -20,17 +20,39 @@ const options = [
     label: "Text Ada 1",
   },
 ]
+const selectStyle: StylesConfig = {
+  control: (styles) => ({
+    ...styles,
+    minWidth: "220px",
+    maxWidth: "220px",
+    border: "none",
+    borderRadius: "0",
+    boxShadow: "none",
+    "&:hover": {
+      border: "none",
+      boxShadow: "none",
+    },
+  }),
+}
 const Engines = () => {
-  const { setEngine, engine } = useContext(AppContext)
+  const { setEngine, engine, setLoading } = useContext(AppContext)
   const findEngine = options.find((option: any) => option.value === engine)
+  const handleChange = (e: any) => {
+    setLoading(true)
+    setEngine(e.value)
+    setTimeout(() => {
+      setLoading(false)
+    }, 300)
+  }
   return (
     <div className="engines">
       <p className={styles.title}>Select Engine</p>
       <Select
         defaultValue={findEngine}
         value={findEngine}
-        onChange={(e) => setEngine(e?.value)}
+        onChange={(e) => handleChange(e)}
         options={options}
+        styles={selectStyle}
       />
     </div>
   )
