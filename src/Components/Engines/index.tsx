@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import Select from "react-select"
 import { AppContext } from "../../context/AppContext"
-
+import styles from "./engines.module.scss"
 const options = [
   {
     value: "text-davinci-002",
@@ -25,7 +25,7 @@ const Engines = () => {
   const findEngine = options.find((option: any) => option.value === engine)
   return (
     <>
-      <p>Select Engine</p>
+      <p className={styles.title}>Select Engine</p>
       <Select
         defaultValue={findEngine}
         value={findEngine}

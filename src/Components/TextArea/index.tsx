@@ -13,6 +13,7 @@ const TextArea = ({ handleChange, value }: TextAreaProps) => {
         value={value}
         onChange={handleChange}
         className={styles.textarea}
+        rows={4}
         placeholder="Write a poem about a dog wearing skis"
       />
     </div>

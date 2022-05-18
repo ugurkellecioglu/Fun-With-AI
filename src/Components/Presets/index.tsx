@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import Select from "react-select"
 import { AppContext } from "../../context/AppContext"
-
+import styles from "./presets.module.scss"
 const options = [
   {
     value: "Q&A",
@@ -45,15 +45,14 @@ const options = [
   },
 ]
 const Presets = () => {
-  const {  setReqPayload, setEngine } =
-    useContext(AppContext)
+  const { setReqPayload, setEngine } = useContext(AppContext)
   const handleChange = (e: any) => {
     setReqPayload(e?.reqPayloadInterface)
     setEngine(e?.engine)
   }
   return (
     <>
-      <p>Select a Preset</p>
+      <p className={styles.title}>Select a Preset</p>
       <Select onChange={handleChange} options={options} />
     </>
   )
