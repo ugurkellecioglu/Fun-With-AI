@@ -21,7 +21,7 @@ const TextArea = ({
       <textarea
         value={value}
         onChange={handleChange}
-        className={styles.textarea}
+        className={`textarea`}
         rows={rows || 3}
         placeholder={placeholder || "..."}
         {...rest}

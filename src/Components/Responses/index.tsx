@@ -15,10 +15,10 @@ const Responses = () => {
 
   if (responses.length > 0)
     return (
-      <>
-        <h1 className={styles.title}>Responses</h1>
+      <div className={`${styles.responses} responses`}>
+        <h1 className={`${styles.title} responses-title`}>Responses</h1>
         {responses}
-      </>
+      </div>
     )
   return (
     <div className={styles.noResponses}>

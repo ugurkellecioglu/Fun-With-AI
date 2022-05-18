@@ -3,6 +3,7 @@ import {
   Container,
   Engines,
   Footer,
+  Intro,
   Presets,
   Prompt,
   Responses,
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <Intro />
       {loading && (
         <div className="loadingWrapper">
           <div className="loading">

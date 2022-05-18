@@ -7,6 +7,7 @@ import Footer from "./Footer"
 import Responses from "./Responses"
 import Engines from "./Engines"
 import Presets from "./Presets"
+import Intro from "./Intro"
 
 export {
   Container,
@@ -18,4 +19,5 @@ export {
   Responses,
   Engines,
   Presets,
+  Intro,
 }

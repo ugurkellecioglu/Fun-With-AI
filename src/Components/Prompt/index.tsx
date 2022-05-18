@@ -23,6 +23,7 @@ const Prompt = () => {
         handleChange={handleChange}
       />
       <Button
+        className={"submit-btn"}
         disabled={prompt.length === 0}
         text="Submit"
         handleClick={handleSubmit}

@@ -11,7 +11,7 @@ const Button = ({ handleClick, text, stylesProps, ...x }: ButtonProps) => {
       {...x}
       style={stylesProps}
       onClick={handleClick}
-      className={styles.button}
+      className={`${styles.button} ${x.className || ""}`}
     >
       {text}
     </button>

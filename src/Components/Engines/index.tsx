@@ -24,7 +24,7 @@ const Engines = () => {
   const { setEngine, engine } = useContext(AppContext)
   const findEngine = options.find((option: any) => option.value === engine)
   return (
-    <div>
+    <div className="engines">
       <p className={styles.title}>Select Engine</p>
       <Select
         defaultValue={findEngine}
