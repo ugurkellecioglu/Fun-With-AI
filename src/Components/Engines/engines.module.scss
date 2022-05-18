@@ -1,3 +1,12 @@
+@import "../../App.scss";
+
 .title {
   color: white;
+}
+.engines {
+  & > div {
+    @include gt-xs {
+      min-width: 200px;
+    }
+  }
 }

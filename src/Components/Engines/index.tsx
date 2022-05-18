@@ -23,8 +23,6 @@ const options = [
 const selectStyle: StylesConfig = {
   control: (styles) => ({
     ...styles,
-    minWidth: "220px",
-    maxWidth: "220px",
     border: "none",
     borderRadius: "0",
     boxShadow: "none",
@@ -45,7 +43,7 @@ const Engines = () => {
     }, 300)
   }
   return (
-    <div className="engines">
+    <div className={`${styles.engines} engines`}>
       <p className={styles.title}>Select Engine</p>
       <Select
         defaultValue={findEngine}

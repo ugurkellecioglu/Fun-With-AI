@@ -47,8 +47,6 @@ const options = [
 const selectStyle: StylesConfig = {
   control: (styles) => ({
     ...styles,
-    minWidth: "220px",
-    maxWidth: "220px",
     border: "none",
     borderRadius: "0",
     boxShadow: "none",
