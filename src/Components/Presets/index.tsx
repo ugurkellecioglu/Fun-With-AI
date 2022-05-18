@@ -45,7 +45,7 @@ const options = [
   },
 ]
 const Presets = () => {
-  const { reqPayload, prompt, setReqPayload, setEngine } =
+  const {  setReqPayload, setEngine } =
     useContext(AppContext)
   const handleChange = (e: any) => {
     setReqPayload(e?.reqPayloadInterface)
