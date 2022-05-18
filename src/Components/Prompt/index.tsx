@@ -17,7 +17,11 @@ const Prompt = () => {
   return (
     <div>
       <TextArea value={prompt} handleChange={handleChange} />
-      <Button handleClick={handleSubmit} />
+      <Button
+        disabled={prompt.length === 0}
+        text="Submit"
+        handleClick={handleSubmit}
+      />
     </div>
   )
 }

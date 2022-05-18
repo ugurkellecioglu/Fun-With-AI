@@ -14,4 +14,9 @@ button {
   &:hover {
     background-color: #eee;
   }
+  &:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: not-allowed;
+  }
 }
