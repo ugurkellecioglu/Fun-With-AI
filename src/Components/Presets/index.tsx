@@ -51,10 +51,10 @@ const Presets = () => {
     setEngine(e?.engine)
   }
   return (
-    <>
+    <div className={styles.wrapper}>
       <p className={styles.title}>Select a Preset</p>
       <Select onChange={handleChange} options={options} />
-    </>
+    </div>
   )
 }
 

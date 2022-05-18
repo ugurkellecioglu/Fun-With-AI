@@ -3,9 +3,18 @@ import styles from "./textarea.module.scss"
 interface TextAreaProps {
   handleChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   value?: string
+  placeholder?: string
+  rows?: number
+  [rest: string]: any
 }
 
-const TextArea = ({ handleChange, value }: TextAreaProps) => {
+const TextArea = ({
+  handleChange,
+  value,
+  placeholder,
+  rows,
+  ...rest
+}: TextAreaProps) => {
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>Enter Prompt</p>
@@ -13,8 +22,9 @@ const TextArea = ({ handleChange, value }: TextAreaProps) => {
         value={value}
         onChange={handleChange}
         className={styles.textarea}
-        rows={4}
-        placeholder="Write a poem about a dog wearing skis"
+        rows={rows || 3}
+        placeholder={placeholder || "..."}
+        {...rest}
       />
     </div>
   )

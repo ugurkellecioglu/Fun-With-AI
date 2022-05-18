@@ -35,14 +35,33 @@ function App() {
         </div>
       )}
       <div className="App">
-        <Container>
+        <Container
+          stylesProps={{ boxShadow: "0 0.5rem 1rem rgba(0, 0, 0, 0.2)" }}
+        >
           <h1>Fun with AI</h1>
-          <div>
+          <Container
+            stylesProps={{
+              height: "100%",
+              minHeight: "100%",
+              width: "80%",
+            }}
+          >
             <Prompt />
-            <Engines />
-            <Presets />
-          </div>
-          <Responses />
+            <Container
+              stylesProps={{
+                height: "100%",
+                minHeight: "100%",
+                alignItems: "center",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Engines />
+              <Presets />
+            </Container>
+            <Responses />
+          </Container>
           <Footer />
         </Container>
       </div>

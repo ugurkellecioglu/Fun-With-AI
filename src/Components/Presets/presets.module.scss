@@ -1,3 +1,6 @@
-.title {
-  color: white;
+.wrapper {
+  margin-left: 2rem;
+  & > .title {
+    color: white;
+  }
 }

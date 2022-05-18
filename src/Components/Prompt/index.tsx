@@ -16,7 +16,12 @@ const Prompt = () => {
 
   return (
     <div>
-      <TextArea value={prompt} handleChange={handleChange} />
+      <TextArea
+        placeholder="Write a poem about a dog wearing skis"
+        rows={3}
+        value={prompt}
+        handleChange={handleChange}
+      />
       <Button
         disabled={prompt.length === 0}
         text="Submit"

@@ -1,3 +1,4 @@
+@import "media-queries.scss";
 /* SCSS HSL */
 $dark-orange: hsla(30, 100%, 53%, 1);
 $orange-yellow-crayola: hsla(44, 86%, 70%, 1);
@@ -5,10 +6,10 @@ $floral-white: hsla(32, 100%, 97%, 1);
 $middle-blue-green: hsla(173, 44%, 73%, 1);
 $space-cadet: hsla(254, 31%, 27%, 1);
 
-$main: #f9ebc8;
-$secondary: #fefbe7;
-$tertiary: #dae5d0;
-$quaternary: #a0bcc2;
+$main: #b983ff;
+$secondary: #94b3fd;
+$tertiary: #94daff;
+$quaternary: #99feff;
 
 html {
   overflow-x: hidden;

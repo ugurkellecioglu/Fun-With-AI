@@ -1,4 +1,5 @@
 @use "../../App.scss" as App;
+@import "../../App.scss";
 .wrapper {
   background-color: App.$floral-white;
   width: 60%;
@@ -7,6 +8,11 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   margin: 1rem;
   position: relative;
+  transition: all 0.3s ease-in-out;
+  @include xs {
+    width: 80%;
+  }
+
   & > .content {
     text-align: justify;
     & > .date {
@@ -14,6 +20,9 @@
       position: absolute;
       right: 1rem;
       top: 0.5rem;
+      @include xs {
+        font-size: 0.7rem;
+      }
     }
     & > div {
       margin-bottom: 1rem;
@@ -23,14 +32,22 @@
       font-size: 1.2rem;
       font-weight: bold;
       margin-bottom: 1rem;
+      @include xs {
+        font-size: 0.8rem;
+      }
     }
 
     .text {
       font-size: 1.2rem;
+      @include xs {
+        font-size: 0.8rem;
+      }
     }
     .wrap {
       min-width: 120px;
-      max-width: fit-content;
+      @include xs {
+        min-width: 70px;
+      }
     }
     .prompt {
       display: flex;
